@@ -1,0 +1,5 @@
+rootProject.name = 'jmc'
+
+include 'jmc-api'
+include 'jmc-web'
+include 'jmc-core'
