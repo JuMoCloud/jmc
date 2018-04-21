@@ -14,49 +14,49 @@ import java.util.Date;
 public abstract class DateFormatUtils {
 
     /**
-     * ÒÔT·Ö¸ôÈÕÆÚºÍÊ±¼ä£¬²¢´øÊ±ÇøĞÅÏ¢£¬·ûºÏISO8601¹æ·¶
+     * ä»¥Tåˆ†éš”æ—¥æœŸå’Œæ—¶é—´ï¼Œå¹¶å¸¦æ—¶åŒºä¿¡æ¯ï¼Œç¬¦åˆISO8601è§„èŒƒ
      */
     public static final String PATTERN_ISO = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ";
     public static final String PATTERN_ISO_ON_SECOND = "yyyy-MM-dd'T'HH:mm:ssZZ";
     public static final String PATTERN_ISO_ON_DATE = "yyyy-MM-dd";
 
     /**
-     * ÒÔ¿Õ¸ñ·Ö¸ôÈÕÆÚºÍÊ±¼ä£¬²»´øÊ±ÇøĞÅÏ¢
+     * ä»¥ç©ºæ ¼åˆ†éš”æ—¥æœŸå’Œæ—¶é—´ï¼Œä¸å¸¦æ—¶åŒºä¿¡æ¯
      */
     public static final String PATTERN_DEFAULT = "yyyy-MM-dd HH:mm:ss.SSS";
     public static final String PATTERN_DEFAULT_ON_SECOND = "yyyy-MM-dd HH:mm:ss";
 
-    // Ê¹ÓÃ¹¤³§·½·¨FastDateFormat.getInstance(), ´Ó»º´æÖĞ»ñÈ¡ÊµÀı
+    // ä½¿ç”¨å·¥å‚æ–¹æ³•FastDateFormat.getInstance(), ä»ç¼“å­˜ä¸­è·å–å®ä¾‹
 
     /**
-     * ÒÔT·Ö¸ôÈÕÆÚºÍÊ±¼ä£¬²¢´øÊ±ÇøĞÅÏ¢£¬·ûºÏISO8601¹æ·¶
+     * ä»¥Tåˆ†éš”æ—¥æœŸå’Œæ—¶é—´ï¼Œå¹¶å¸¦æ—¶åŒºä¿¡æ¯ï¼Œç¬¦åˆISO8601è§„èŒƒ
      */
     public static final FastDateFormat ISO_FORMAT = FastDateFormat.getInstance(PATTERN_ISO);
     public static final FastDateFormat ISO_ON_SECOND_FORMAT = FastDateFormat.getInstance(PATTERN_ISO_ON_SECOND);
     public static final FastDateFormat ISO_ON_DATE_FORMAT = FastDateFormat.getInstance(PATTERN_ISO_ON_DATE);
 
     /**
-     * ÒÔ¿Õ¸ñ·Ö¸ôÈÕÆÚºÍÊ±¼ä£¬²»´øÊ±ÇøĞÅÏ¢
+     * ä»¥ç©ºæ ¼åˆ†éš”æ—¥æœŸå’Œæ—¶é—´ï¼Œä¸å¸¦æ—¶åŒºä¿¡æ¯
      */
     public static final FastDateFormat DEFAULT_FORMAT = FastDateFormat.getInstance(PATTERN_DEFAULT);
     public static final FastDateFormat DEFAULT_ON_SECOND_FORMAT = FastDateFormat.getInstance(PATTERN_DEFAULT_ON_SECOND);
 
     /**
-     * ·ÖÎöÈÕÆÚ×Ö·û´®, ½öÓÃÓÚpattern²»¹Ì¶¨µÄÇé¿ö. ·ñÔòÖ±½ÓÊ¹ÓÃDateFormatsÖĞ·â×°ºÃµÄFastDateFormat.
-     * FastDateFormat.getInstance()ÒÑ¾­×öÁË»º´æ£¬²»»áÃ¿´Î´´½¨¶ÔÏó£¬µ«Ö±½ÓÊ¹ÓÃ¶ÔÏóÈÔÈ»ÄÜ¼õÉÙÔÚ»º´æÖĞµÄ²éÕÒ.
+     * åˆ†ææ—¥æœŸå­—ç¬¦ä¸², ä»…ç”¨äºpatternä¸å›ºå®šçš„æƒ…å†µ. å¦åˆ™ç›´æ¥ä½¿ç”¨DateFormatsä¸­å°è£…å¥½çš„FastDateFormat.
+     * FastDateFormat.getInstance()å·²ç»åšäº†ç¼“å­˜ï¼Œä¸ä¼šæ¯æ¬¡åˆ›å»ºå¯¹è±¡ï¼Œä½†ç›´æ¥ä½¿ç”¨å¯¹è±¡ä»ç„¶èƒ½å‡å°‘åœ¨ç¼“å­˜ä¸­çš„æŸ¥æ‰¾.
      */
     public static Date pareDate(String pattern, String dateString) throws ParseException {
         return FastDateFormat.getInstance(pattern).parse(dateString);
     }
 
     /**
-     * ¸ñÊ½»¯ÈÕÆÚ, ½öÓÃÓÚpattern²»¹Ì¶¨µÄÇé¿ö. ·ñÔòÖ±½ÓÊ¹ÓÃ±¾ÀàÖĞ·â×°ºÃµÄFastDateFormat.
-     * FastDateFormat.getInstance()ÒÑ¾­×öÁË»º´æ£¬²»»áÃ¿´Î´´½¨¶ÔÏó£¬µ«Ö±½ÓÊ¹ÓÃ¶ÔÏóÈÔÈ»ÄÜ¼õÉÙÔÚ»º´æÖĞµÄ²éÕÒ.
+     * æ ¼å¼åŒ–æ—¥æœŸ, ä»…ç”¨äºpatternä¸å›ºå®šçš„æƒ…å†µ. å¦åˆ™ç›´æ¥ä½¿ç”¨æœ¬ç±»ä¸­å°è£…å¥½çš„FastDateFormat.
+     * FastDateFormat.getInstance()å·²ç»åšäº†ç¼“å­˜ï¼Œä¸ä¼šæ¯æ¬¡åˆ›å»ºå¯¹è±¡ï¼Œä½†ç›´æ¥ä½¿ç”¨å¯¹è±¡ä»ç„¶èƒ½å‡å°‘åœ¨ç¼“å­˜ä¸­çš„æŸ¥æ‰¾.
      *
      * @param pattern
-     *            ÕıÔò±í´ïÊ½
+     *            æ­£åˆ™è¡¨è¾¾å¼
      * @param date
-     *            ÈÕÆÚ
+     *            æ—¥æœŸ
      * @return
      */
     public static String formatDate(String pattern, Date date) {
@@ -64,13 +64,13 @@ public abstract class DateFormatUtils {
     }
 
     /**
-     * ¸ñÊ½»¯ÈÕÆÚ, ½öÓÃÓÚ²»¹Ì¶¨pattern²»¹Ì¶¨µÄÇé¿ö. ·ñ·ñÔòÖ±½ÓÊ¹ÓÃ±¾ÀàÖĞ·â×°ºÃµÄFastDateFormat.
-     * FastDateFormat.getInstance()ÒÑ¾­×öÁË»º´æ£¬²»»áÃ¿´Î´´½¨¶ÔÏó£¬µ«Ö±½ÓÊ¹ÓÃ¶ÔÏóÈÔÈ»ÄÜ¼õÉÙÔÚ»º´æÖĞµÄ²éÕÒ.
+     * æ ¼å¼åŒ–æ—¥æœŸ, ä»…ç”¨äºä¸å›ºå®špatternä¸å›ºå®šçš„æƒ…å†µ. å¦å¦åˆ™ç›´æ¥ä½¿ç”¨æœ¬ç±»ä¸­å°è£…å¥½çš„FastDateFormat.
+     * FastDateFormat.getInstance()å·²ç»åšäº†ç¼“å­˜ï¼Œä¸ä¼šæ¯æ¬¡åˆ›å»ºå¯¹è±¡ï¼Œä½†ç›´æ¥ä½¿ç”¨å¯¹è±¡ä»ç„¶èƒ½å‡å°‘åœ¨ç¼“å­˜ä¸­çš„æŸ¥æ‰¾.
      *
      * @param pattern
-     *            ÕıÔò±í´ïÊ½
+     *            æ­£åˆ™è¡¨è¾¾å¼
      * @param date
-     *            ÈÕÆÚ
+     *            æ—¥æœŸ
      * @return
      */
     public static String formatDate(String pattern, long date) {
@@ -78,12 +78,12 @@ public abstract class DateFormatUtils {
     }
 
     /**
-     * °´HH:mm:ss.SSS¸ñÊ½£¬¸ñÊ½»¯Ê±¼ä¼ä¸ô. endDate±ØĞë´óÓÚstartDate£¬¼ä¸ô¿É´óÓÚ1Ìì
+     * æŒ‰HH:mm:ss.SSSæ ¼å¼ï¼Œæ ¼å¼åŒ–æ—¶é—´é—´éš”. endDateå¿…é¡»å¤§äºstartDateï¼Œé—´éš”å¯å¤§äº1å¤©
      *
      * @param startDate
-     *            ¿ªÊ¼ÈÕÆÚ
+     *            å¼€å§‹æ—¥æœŸ
      * @param endDate
-     *            ½áÊøÈÕÆÚ
+     *            ç»“æŸæ—¥æœŸ
      * @return
      */
     public static String formatDuration(Date startDate, Date endDate) {
@@ -91,7 +91,7 @@ public abstract class DateFormatUtils {
     }
 
     /**
-     * °´HH:mm:ss.SSS¸ñÊ½£¬¸ñÊ½»¯Ê±¼ä¼ä¸ô µ¥Î»ÎªºÁÃë£¬±ØĞë´óÓÚ0£¬¿É´óÓÚ1Ìì
+     * æŒ‰HH:mm:ss.SSSæ ¼å¼ï¼Œæ ¼å¼åŒ–æ—¶é—´é—´éš” å•ä½ä¸ºæ¯«ç§’ï¼Œå¿…é¡»å¤§äº0ï¼Œå¯å¤§äº1å¤©
      *
      * @param durationMillis
      * @return
@@ -101,12 +101,12 @@ public abstract class DateFormatUtils {
     }
 
     /**
-     * °´HH:mm:ss¸ñÊ½£¬¸ñÊ½»¯Ê±¼ä¼ä¸ô endDate±ØĞë´óÓÚstartDate£¬¼ä¸ô¿É´óÓÚ1Ìì
+     * æŒ‰HH:mm:ssæ ¼å¼ï¼Œæ ¼å¼åŒ–æ—¶é—´é—´éš” endDateå¿…é¡»å¤§äºstartDateï¼Œé—´éš”å¯å¤§äº1å¤©
      *
      * @param startDate
-     *            ¿ªÊ¼ÈÕÆÚ
+     *            å¼€å§‹æ—¥æœŸ
      * @param endDate
-     *            ½áÊøÈÕÆÚ
+     *            ç»“æŸæ—¥æœŸ
      * @return String
      */
     public static String formatDurationOnSecond(Date startDate, Date endDate) {
@@ -114,7 +114,7 @@ public abstract class DateFormatUtils {
     }
 
     /**
-     * °´HH:mm:ss¸ñÊ½£¬¸ñÊ½»¯Ê±¼ä¼ä¸ô µ¥Î»ÎªºÁÃë£¬±ØĞë´óÓÚ0£¬¿É´óÓÚ1Ìì
+     * æŒ‰HH:mm:ssæ ¼å¼ï¼Œæ ¼å¼åŒ–æ—¶é—´é—´éš” å•ä½ä¸ºæ¯«ç§’ï¼Œå¿…é¡»å¤§äº0ï¼Œå¯å¤§äº1å¤©
      *
      * @param durationMillis
      * @return
