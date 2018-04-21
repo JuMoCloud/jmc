@@ -29,13 +29,13 @@ subprojects {
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
     }
 
-    //´ò°üÔ´´úÂë
+    //æ‰“åŒ…æºä»£ç 
     task sourcesJar(type: Jar) {
         classifier = 'sources'
         from sourceSets.main.allSource
     }
 
-    //´òÎÄµµËµÃ÷°ü
+    //æ‰“æ–‡æ¡£è¯´æ˜åŒ…
     task javadocJar(type: Jar, dependsOn: javadoc) {
       classifier = 'javadoc'
       from javadoc.destinationDir
@@ -58,4 +58,4 @@ subprojects {
     sourceCompatibility = 1.8
 }
 
-description = 'ÖìÖìÄ«Ç××ÓÓ¢Óï·şÎñ¶Ë'
+description = 'æœ±æœ±å¢¨äº²å­è‹±è¯­æœåŠ¡ç«¯'
