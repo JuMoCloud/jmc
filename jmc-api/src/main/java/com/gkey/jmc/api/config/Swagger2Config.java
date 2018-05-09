@@ -41,6 +41,6 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("朱朱墨亲子英语").contact(new Contact("zzm", "", "wszghj@aliyun.com"))
-                .version("1.0").description("朱朱墨亲子英语服务端接口").build();
+                .version("2.0").description("朱朱墨亲子英语服务端接口").build();
     }
 }

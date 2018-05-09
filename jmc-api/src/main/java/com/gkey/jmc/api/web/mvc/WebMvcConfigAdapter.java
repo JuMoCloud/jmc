@@ -8,6 +8,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,6 +21,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 @Order(10)
 @Configuration
 public class WebMvcConfigAdapter extends WebMvcConfigurationSupport {
+                                         
 
     public static final String SWAGER_URL_PATTERNS = "/swagger*/**,/v2/api-docs";
 
@@ -28,8 +30,16 @@ public class WebMvcConfigAdapter extends WebMvcConfigurationSupport {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(xtokenInterceptor).addPathPatterns("/**")
-                .excludePathPatterns(SWAGER_URL_PATTERNS.split(","));
+//        registry.addInterceptor(xtokenInterceptor).addPathPatterns("/**")
+//                .excludePathPatterns(SWAGER_URL_PATTERNS.split(","));
+    }
+
+    @Override
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
     @Override

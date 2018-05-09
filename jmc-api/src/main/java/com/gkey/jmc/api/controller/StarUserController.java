@@ -1,19 +1,21 @@
 package com.gkey.jmc.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.gkey.jmc.core.data.entity.StarUser;
 import com.gkey.jmc.core.data.service.StarUserService;
 import com.gkey.jmc.core.util.page.Page;
+import com.gkey.jmc.web.controller.CommonController;
 import com.gkey.jmc.web.message.ResponseMessage;
 
 import io.swagger.annotations.Api;
@@ -23,14 +25,14 @@ import io.swagger.annotations.ApiOperation;
  * 用户表 controller控制器
  * 
  * @author: Guokey
- * @date: 2018-05-09 15:02:59
+ * @date: 2018-05-09 15:24:58
  * @version: V1.0-auto
- * @review: Guokey/2018-05-09 15:02:59
+ * @review: Guokey/2018-05-09 15:24:58
  */
-@Api(description = "用户表管理")
+@Api(tags = { "用户表管理" })
 @RestController
 @RequestMapping("/staruser")
-public class StarUserController {
+public class StarUserController extends CommonController {
 
     @Autowired
     protected StarUserService starUserService;
