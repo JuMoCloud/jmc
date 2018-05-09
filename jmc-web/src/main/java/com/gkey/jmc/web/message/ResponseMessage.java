@@ -260,11 +260,11 @@ public class ResponseMessage implements Serializable {
         this.message = message;
     }
 
-    public static ResponseMessage ok() {
-        return ok(null);
+    public static ResponseMessage success() {
+        return success(null);
     }
 
-    public static ResponseMessage ok(Object data) {
+    public static ResponseMessage success(Object data) {
         return new ResponseMessage(true, data);
     }
 

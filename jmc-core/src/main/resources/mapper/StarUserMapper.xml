@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gkey.jmc.core.data.mapper.StarUserMapper">
+    <!-- 通用查询映射结果 
+    <resultMap id="BaseResultMap" type="com.gkey.jmc.core.data.entity.StarUser">
+        <result column="id" property="id" />
+        <result column="login_name" property="loginName" />
+        <result column="login_pw" property="loginPw" />
+        <result column="nick_name" property="nickName" />
+        <result column="email" property="email" />
+        <result column="mobile" property="mobile" />
+        <result column="depart_ment" property="departMent" />
+        <result column="role_code" property="roleCode" />
+        <result column="state" property="state" />
+        <result column="remark" property="remark" />
+    </resultMap>-->
+
+    <!-- 通用查询结果列 
+    <sql id="Base_Column_List">
+        select id, login_name AS loginName, login_pw AS loginPw, nick_name AS nickName, email, mobile, depart_ment AS departMent, role_code AS roleCode, state, remark from c_user
+    </sql>-->
+
+    <!-- 新增 只插入非空字段 -->
+    <insert id="insert">
+        insert into c_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="loginName != null">
+                login_name,
+            </if>
+            <if test="loginPw != null">
+                login_pw,
+            </if>
+            <if test="nickName != null">
+                nick_name,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="departMent != null">
+                depart_ment,
+            </if>
+            <if test="roleCode != null">
+                role_code,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="loginName != null">
+                #{loginName,jdbcType=VARCHAR},
+            </if>
+            <if test="loginPw != null">
+                #{loginPw,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="departMent != null">
+                #{departMent,jdbcType=VARCHAR},
+            </if>
+            <if test="roleCode != null">
+                #{roleCode,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 新增 全部字段 -->
+    <insert id="insertAllColumn">
+        insert into c_user(
+            login_name,
+            login_pw,
+            nick_name,
+            email,
+            mobile,
+            depart_ment,
+            role_code,
+            state,
+            remark
+        ) values (
+            loginName,
+            loginPw,
+            nickName,
+            email,
+            mobile,
+            departMent,
+            roleCode,
+            state,
+            remark
+        )
+    </insert>
+
+    <!-- 修改 只修改非空字段 -->
+    <update id="update">
+        update c_user
+        <set>
+            <if test="starUser.id != null">
+                id = #{starUser.id,jdbcType=BIGINT},
+            </if>
+            <if test="starUser.loginName != null">
+                login_name = #{starUser.loginName,jdbcType=VARCHAR},
+            </if>
+            <if test="starUser.loginPw != null">
+                login_pw = #{starUser.loginPw,jdbcType=VARCHAR},
+            </if>
+            <if test="starUser.nickName != null">
+                nick_name = #{starUser.nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="starUser.email != null">
+                email = #{starUser.email,jdbcType=VARCHAR},
+            </if>
+            <if test="starUser.mobile != null">
+                mobile = #{starUser.mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="starUser.departMent != null">
+                depart_ment = #{starUser.departMent,jdbcType=VARCHAR},
+            </if>
+            <if test="starUser.roleCode != null">
+                role_code = #{starUser.roleCode,jdbcType=VARCHAR},
+            </if>
+            <if test="starUser.state != null">
+                state = #{starUser.state,jdbcType=INTEGER},
+            </if>
+            <if test="starUser.remark != null">
+                remark = #{starUser.remark,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!-- 修改 全部字段 -->
+    <update id="updateAllColumn">
+        update c_user
+        <set>
+            id = #{starUser.id},
+            login_name = #{starUser.loginName},
+            login_pw = #{starUser.loginPw},
+            nick_name = #{starUser.nickName},
+            email = #{starUser.email},
+            mobile = #{starUser.mobile},
+            depart_ment = #{starUser.departMent},
+            role_code = #{starUser.roleCode},
+            state = #{starUser.state},
+            remark = #{starUser.remark},
+        </set>
+        where id = #{id}
+    </update>
+
+    <!-- 根据主鍵查找 -->
+    <select id="selectById" resultType="com.gkey.jmc.core.data.entity.StarUser">
+        select id, login_name AS loginName, login_pw AS loginPw, nick_name AS nickName, email, mobile, depart_ment AS departMent, role_code AS roleCode, state, remark from c_user
+        where id = #{id}
+    </select>
+
+    <!-- 列表查询 -->
+    <select id="selectList" resultType="com.gkey.jmc.core.data.entity.StarUser">
+        select id, login_name AS loginName, login_pw AS loginPw, nick_name AS nickName, email, mobile, depart_ment AS departMent, role_code AS roleCode, state, remark from c_user
+        where 1=1
+    </select>
+
+    <!-- 分页total查询 -->
+    <select id="pageAll" resultType="java.lang.Integer">
+        select count(id) from c_user
+        where 1=1
+    </select>
+
+    <!-- 分页数据查询 -->
+    <select id="page" resultType="com.gkey.jmc.core.data.entity.StarUser">
+        select id, login_name AS loginName, login_pw AS loginPw, nick_name AS nickName, email, mobile, depart_ment AS departMent, role_code AS roleCode, state, remark from c_user
+        where 1=1
+        limit #{page.offset},#{page.pageSize}
+    </select>
+
+    <!-- 刪除 -->
+    <delete id="delete">
+        delete from c_user where id = #{id}
+    </delete>
+</mapper>

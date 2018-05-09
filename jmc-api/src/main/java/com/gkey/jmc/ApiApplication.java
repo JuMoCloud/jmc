@@ -1,5 +1,6 @@
 package com.gkey.jmc;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ServletComponentScan
 @SpringBootApplication
 @EnableTransactionManagement
+@MapperScan("com.gkey.jmc.core.data.mapper")
 public class ApiApplication {
 
     private static final Logger logger = LoggerFactory.getLogger(ApiApplication.class);

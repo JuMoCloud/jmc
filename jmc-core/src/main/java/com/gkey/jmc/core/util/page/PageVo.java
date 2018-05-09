@@ -1,4 +1,4 @@
-package com.gkey.jmc.web.page;
+package com.gkey.jmc.core.util.page;
 
 /**
  * @author guohongjian[guo_hj@suixingpay.com]
